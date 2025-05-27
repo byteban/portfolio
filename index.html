@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Emmanuel Ngwenyama's personal portfolio showcasing projects, skills, and contact information.">
+    <meta name="keywords" content="portfolio, web developer, projects, contact, about me">
+    <meta name="author" content="Emmanuel Ngwenyama">
+    <title>Emmanuel Ngwenyama</title>
+    <style>
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            height: 60px;
+        }
+        
+        
+        .navbar ul {
+            list-style: none;
+            margin: 5px;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar li {
+            margin: 0 15px;
+            
+        }
+        .navbar img.logo {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            margin-right: 10px;
+        }
+
+
+
+        .navbar a {
+            text-decoration: none;
+            color:#4818cd;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            font-family: 'Arial', sans-serif;
+        }
+        .navbar a:hover {
+            color: rgb(0, 0, 0);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        .home {
+            padding: 60px 20px;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+            flex-wrap: wrap;
+
+        }
+
+        .home h1 {
+
+           font-size: 2.5rem;
+           font-weight: bold;
+           margin-bottom: 20px;
+           color: #4818cd;
+        }
+        .home p {
+           font-size: 1.25rem;
+            color:#444;
+            line-height: 1.7;
+        }
+
+        .home .btn {
+            padding: 12px 24px;
+            background-color: #4818cd;
+            color: white;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: background-color 0.3s ease;
+        }
+        .home .btn:hover {
+            background-color: #3700b3;
+        }
+        .home-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .home-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            
+        }
+        .home-content {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+
+        .about {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 60px 40px;
+            background-color: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 2px 12px rgba(72, 24, 205, 0.1);
+            min-height: 400px;
+
+
+        }
+
+        .about-image {
+            flex: 1.2;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .about-image img {
+            width: 100px;
+            max-width: 340px;
+            min-width: 220px;
+            object-fit: cover;
+
+            
+        }
+
+        .about-content {
+            flex: 2;
+            text-align: left;
+            padding-left: 32px;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #4818cd;
+            margin-bottom: 24px;
+        }
+        .about-content p{
+            font-size: 1.25rem;
+            color:#444;
+            line-height: 1.7;
+
+        }
+
+        .projects-content {
+            text-align: center;
+        }
+
+        .projects-content h2 {
+            font-size: 2rem;
+            color: #4818cd;
+            margin-bottom: 20px;
+        }
+
+        .projects-list {
+            display: flex;
+            gap: 24px;
+            flex-direction: row;
+            margin-top: 24px;
+            align-items: stretch;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .projects-content h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4818cd;
+            margin-bottom: 12px;
+            margin-top: 0;
+        }
+
+        .project-item {
+            background: #ffffff;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(72, 24, 205, 0.1);
+            padding: 24px 16px;
+            flex: 1 1 220px;
+            min-width: 220px;
+            max-width: 360px;
+            text-align: left;
+            transition: box-shadow 0.2s, transform 0.2s;
+            margin-bottom: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .project-item p {
+            font-size: 1rem;
+            color: #444;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        #services {
+            padding: 3rem 1rem;
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        #services h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #4818cd;
+        }
+
+        .project-item:hover {
+            box-shadow: 0 4px 16px rgba(72, 24, 205, 0.13);
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .services .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: auto;
+        }
+        .service-card {
+           background: white;
+           border-radius: 16px;
+           padding: 1.5rem;
+           box-shadow: 0 4px 12px rgb(0, 0, 0, 0.08);
+           transition: transform 0.2s, box-shadow 0.2s;
+        
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 260px;
+       }
+
+        .contact {
+            padding: 60px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-card h3 {
+        font-size: 1.2rem;
+        margin: 0.5rem 0 0.5rem 0;
+        color: #333;
+        }
+
+       .service-card p {
+        font-size: 0.95rem;
+        color: #666;
+        margin: 0; 
+        }
+
+        .service-card-icon  {
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
+        }
+
+        .service-card-icon img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            display: block;
+        }
+
+
+        .contact-content{
+            max-width: 600px;
+            margin: 60px auto;
+            padding: 50px 50px;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(72, 24, 205, 0.1);
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .contact-form button {
+            padding: 12px;
+            background-color: #4818cd;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s
+        }
+
+        .contact-form button:hover {
+            background-color: #3700b3;
+        }
+
+        .contact-form label {
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+        }
+
+        .social-links a {
+            color: #4818cd;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: #3700b3;
+            text-decoration: underline;
+        }
+        /* Sections styling */
+        .home h1,
+        .about-content h2,
+        .projects-content h2,
+        #services h2,
+        .contact-content h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 32px;
+            color: #4818cd;
+            text-align: center;
+        }
+
+        .home,
+        .about,
+        .projects,
+        #services,
+        .contact {
+            margin-bottom: 64px;
+        }
+
+        .home-content h1,
+        .about-content h2 {
+            text-align: left;
+        }
+     /* Footer styling */
+        .footer {
+            background-color: #f3f3f3;
+            color: #444;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: left;
+            flex-wrap: wrap; 
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer p {
+            margin: 0 0 0 24px;
+            font-size: 1rem;
+            color: #444;
+        }
+        .footer div {
+            margin-top: 0 24px 0 0;
+        }
+
+        .footer a {
+            color:#666;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            color: #222;
+            text-decoration: underline;
+        }
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #4818cd;
+            margin-left: auto;
+        }
+
+        /*button pop*/
+        .home .btn, 
+        .contact-form button:hover {
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .home .btn:hover, .contact-form button:hover {
+            transform: scale(1.05);
+        }
+        /*section fade in animations*/
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: none;
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                background-color: #ffffff;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .navbar ul {
+                background: #ffffff;
+            }
+
+            .navbar img.logo {
+                width: 100px;
+                height: 100px;
+                margin-right: 0;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+
+             .navbar ul {
+                transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                overflow: hidden;
+                max-height: 0;
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                background: #ffffff;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 0;
+                margin: 0;
+             }
+             .navbar ul.active {
+                max-height: 500px;
+                display: flex;
+             }
+
+            .navbar ul li {
+                width: 100%;
+                text-align: left;
+                padding: 12px 20px;
+                margin: 0;
+            }
+    
+
+            .home {
+                flex-direction: column-reverse;
+                padding: 30px 10px;
+                gap: 24px;
+            }
+
+            .home-content,
+            .home-image {
+                min-width: 0;
+                padding: 0;
+                text-align: left;
+
+            }
+
+            .home-content h1 {
+                font-size: 2rem;
+                text-align: left;
+            }
+
+            .home-image img {
+                max-width: 60vw;
+                height: 100%;
+            }
+            .home-content p {
+                font-size: 1rem;
+                text-align: left;
+            }
+            .home-content .btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+                margin-top: 10px;
+                
+            }
+
+            .about {
+                flex-direction: column;
+                gap: 24px;
+                padding: 30px 10px;
+                min-height: unset;
+            }
+
+            .about-image,
+            .about-content {
+                padding: 0;
+                text-align: center;
+                min-width: 0;
+            }
+
+            .about-content h2 {
+                font-size: 2rem;
+                text-align: center;
+            }
+
+            .projects-list {
+                flex-direction: column;
+                gap: 16px;
+
+            }
+
+            .project-item {
+                max-width: 100%;
+            }
+
+            .card-grid{
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .contact-content{
+                padding: 20px 10px;
+                margin: 30px auto;
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 10px;
+            }
+            .footer p, 
+            .footer div {
+                margin: 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        
+        <img src="/images/lo.JPG" alt="Logo" class="logo">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">&#9776;</button>
+        <ul id="navbar-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Skills</a></li>
+            <li><a href="#contact">Contact Me</a></li>
+            <li><a href="#services">Services</a></li>
+        </ul>
+    </header>
+
+    <div class="home fade-in" id="home">
+        <div class="home-content">
+            <h1>Hello, I'm Emmanuel!</h1>
+            <p>
+                 I help people and small businesses with tech support, graphic design, and digital skills.<br>
+                 Let’s make technology simple together.
+            </p>
+            <div class="btn-container">
+                <a href="https://wa.me/260777274339"class="btn">WhatsApp</a>
+
+            </div>
+        </div>
+        <div class="home-image">
+            <img src="/images/home.png" alt="Welcome"/>
+        </div>
+    </div>
+
+    <div class="about fade-in" id="about">
+        <div class="about-image">
+            <img src="/images/about.png" alt="About Me"/>
+        </div>
+        <div class="about-content">
+            <h2>About Me</h2>
+            <p>a tech-savvy creative with a passion for helping others through practical solutions. I specialize in graphic design, software installation and repair, and teaching computer basics. Whether it’s designing eye-catching visuals or guiding someone through digital tools, I enjoy making technology simple and useful for everyone.</p>
+        </div>
+    </div>
+
+    <div class="projects fade-in" id="projects">
+        <div class="projects-content">
+            <h2>Skills</h2>
+            <div class="projects-list">
+                <div class="project-item">
+                    <h3>Microsoft tools</h3>
+                    <p>Proficient in Microsoft Word, Excel, and PowerPoint for document creation, data analysis, and professional presentations, with strong formatting, charting, and layout design skills.</p>
+                </div>
+                <div class="project-item">
+                    <h3>Graphic Designing</h3>
+                    <p>Skilled in graphic design using Photoshop and Canva, creating posters, logos, and social media content with a focus on visual impact, branding, and clean, modern design.</p>
+                </div>
+                <div class="project-item">
+                    <h3>Software Installation & Repair</h3>
+                    <p>Experienced in software installation, troubleshooting, and repair on Windows and Ubuntu systems to ensure smooth performance and resolve common technical issues efficiently.</p>
+                </div>
+                <div class="project-item">
+                    <h3>Teaching Computer Basics</h3>
+                    <p>Experienced in teaching computer basics, including hardware fundamentals, software use, and essential digital skills to help beginners confidently navigate technology.</p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <section id="services" class="fade-in">
+        <h2>What I can Help With</h2>
+        <div class="card-grid">
+            <div class="service-card">
+                <div class="service-card-icon">
+                    <img src="/images/fixing.png" alt="Fix Software Issues">
+                </div>
+                <h3>Fix Software Issues</h3>
+                <p>Windows & Ubuntu errors, app crashes, system fixes.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card-icon">
+                    <img src="/images/Graphic designing.png" alt="Graphic Design">
+                </div>
+                <h3>Graphic Design</h3>
+                <p>Posters, flyers, logos, and social media designs.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card-icon">
+                    <img src="/images/software.png" alt="Computer Setup">
+                </div>
+                <h3>Computer Setup</h3>
+                <p>Installing apps, cleanup, upgrades, general maintenance.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-card-icon">
+                    <img src="/images/data entry.png" alt="Data Entry">
+                </div>
+                <h3>Document Formatting</h3>
+                <p>Clean, professional layout for reports or teaching docs.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="contact fade-in" id="contact">
+        <div class="contact-content">
+            <h2>Contact Me</h2>
+            <div class="contact-form">
+                <form action="mailto:ngwenyamae3118@gmail.com" method="post">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                    
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+            <div class="social-links">
+                
+                <a href="https://m.me/ngwenyamae3118" target="_blank">Facebook</a>
+                <a href="https://www.instagram.com/ngwenyama3118/" target="_blank">Instagram</a>
+                <a href="https://wa.me/260777274339" target="_blank">WhatsApp</a>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2025 Emmanuel Ngwenyama. All rights reserved.</p>
+        <div>
+            <a href="https://www.instagram.com/ngwenyama3118/" target="_blank">Instagram</a>
+            <a href="https://m.me/ngwenyamae3118" target="_blank">Facebook</a>
+            <a href="https://wa.me/260777274339" target="_blank">WhatsApp</a>
+        </div>
+    </footer>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navbarLinks = document.getElementById('navbar-links');
+
+        menuToggle.addEventListener('click', () => {
+            navbarLinks.classList.toggle('active');
+        });
+
+
+        // Section fade-in animation
+    document.querySelectorAll('.fade-in').forEach(section => {
+        function reveal() {
+            const rect = section.getBoundingClientRect();
+            if(rect.top < window.innerHeight - 60) {
+                section.classList.add('visible');
+                window.removeEventListener('scroll', reveal);
+            }
+        }
+        window.addEventListener('scroll', reveal);
+        reveal();
+    });
+    </script>
+</body>
+</html>
